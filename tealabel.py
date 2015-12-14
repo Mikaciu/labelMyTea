@@ -22,9 +22,9 @@ def display_rect(c):
             # ingredients
 
             # qr
-            img = qrcode.make('Some data here')
+            img = qrcode.make('http://www.qwant.fr')
             image = ImageReader(img._img);
-            c.drawImage(image, (x + 0.5) * cm, (y + 2) * cm, width=2.5 * cm, height=2.5 * cm)
+            c.drawImage(image, ((x + (dims[0] / cm) / 2) - 1.25) * cm, (y + 0.25) * cm, width=2.5 * cm, height=2.5 * cm)
 
 
 c = canvas.Canvas('myfile.pdf', pagesize=A4)
