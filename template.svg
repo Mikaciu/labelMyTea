@@ -1,0 +1,465 @@
+<svg  xmlns="http://www.w3.org/2000/svg"
+      xmlns:xlink="http://www.w3.org/1999/xlink"
+	  width="210mm" height="297mm"
+	  version="1.2"
+	  >
+	<!--rect x="10mm" y="10mm" width="60mm" height="75mm" stroke="green" stroke-width="1" fill="white" rx="5" />
+	<rect x="10mm" y="90mm" width="60mm" height="75mm" stroke="green" stroke-width="1" fill="white" rx="5" />
+	<rect x="10mm" y="170mm" width="60mm" height="75mm" stroke="green" stroke-width="1" fill="white" rx="5" />
+	<rect x="75mm" y="10mm" width="60mm" height="75mm" class="guy" stroke-width="1" fill="white" rx="5" />
+	<rect x="75mm" y="90mm" width="60mm" height="75mm" stroke="green" stroke-width="1" fill="white" rx="5" />
+	<rect x="75mm" y="170mm" width="60mm" height="75mm" stroke="green" stroke-width="1" fill="white" rx="5" />
+	<rect x="140mm" y="10mm" width="60mm" height="75mm" stroke="green" stroke-width="1" fill="white" rx="5" />
+	<rect x="140mm" y="90mm" width="60mm" height="75mm" stroke="green" stroke-width="1" fill="white" rx="5" />
+	<rect x="140mm" y="170mm" width="60mm" height="75mm" stroke="green" stroke-width="1" fill="white" rx="5" /-->
+	<style type="text/css">
+		<![CDATA[
+		rect.label.black{stroke:dimgrey;}
+		rect.label.red{stroke:maroon;}
+		rect.label.infusion{stroke:LightSeaGreen;}
+		rect.label.green{stroke:ForestGreen;}
+		rect.label.smoked{stroke:peru;}
+		]]>
+	</style>
+    <svg x="10mm" y="10mm">
+      <rect
+         width="60mm"
+         height="75mm"
+         rx="5"
+         ry="5"
+         x="1"
+         y="1"
+         style="fill:none;stroke:#000000;stroke-opacity:1" class="label black" />
+      <text
+         x="30mm"
+         y="16px"
+         xml:space="preserve"
+         style="font-size:16px;font-style:normal;font-weight:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans">title</text>
+      <text
+         x="30mm"
+         y="32px"
+         xml:space="preserve"
+         style="font-size:14px;font-style:normal;font-weight:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans">origin</text>
+      <text
+         x="10mm"
+         y="56px"
+		 width="20mm"
+         xml:space="preserve"
+         style="font-size:12px;font-style:normal;font-weight:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans">type</text>
+      <text
+         x="30mm"
+         y="56px"
+         xml:space="preserve"
+         style="font-size:12px;font-style:normal;font-weight:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans">duration</text>
+      <text
+         x="50mm"
+         y="56px"
+         xml:space="preserve"
+         style="font-size:12px;font-style:normal;font-weight:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans">temp</text>
+      <image
+         xlink:href="https://api.qrserver.com/v1/create-qr-code/?size=150x150&amp;data=It%27s%20me%20mario&amp;ecc=Q&amp;format=svg"
+         x="18.5mm"
+         y="45mm"
+         width="25mm"
+         height="25mm" />
+      <text
+         x="2mm"
+         y="75px"
+		 width="50mm"
+         id="text3942"
+         xml:space="preserve"
+         style="font-size:11px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans">* ingredient 1</text>
+    </svg>
+    <svg x="75mm" y="10mm">
+      <rect
+         width="60mm"
+         height="75mm"
+         rx="5"
+         ry="5"
+         x="1"
+         y="1"
+         style="fill:none;/*stroke:#000000;*/stroke-opacity:1" class="label smoked" />
+      <text
+         x="30mm"
+         y="16px"
+         xml:space="preserve"
+         style="font-size:16px;font-style:normal;font-weight:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans">title</text>
+      <text
+         x="30mm"
+         y="32px"
+         xml:space="preserve"
+         style="font-size:14px;font-style:normal;font-weight:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans">origin</text>
+      <text
+         x="10mm"
+         y="56px"
+		 width="20mm"
+         xml:space="preserve"
+         style="font-size:12px;font-style:normal;font-weight:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans">type</text>
+      <text
+         x="30mm"
+         y="56px"
+         xml:space="preserve"
+         style="font-size:12px;font-style:normal;font-weight:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans">duration</text>
+      <text
+         x="50mm"
+         y="56px"
+         xml:space="preserve"
+         style="font-size:12px;font-style:normal;font-weight:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans">temp</text>
+      <image
+         xlink:href="https://api.qrserver.com/v1/create-qr-code/?size=150x150&amp;data=It%27s%20me%20mario&amp;ecc=Q&amp;format=svg"
+         x="18.5mm"
+         y="45mm"
+         width="25mm"
+         height="25mm" />
+      <text
+         x="2mm"
+         y="75px"
+		 width="50mm"
+         id="text3942"
+         xml:space="preserve"
+         style="font-size:11px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans">* ingredient 1</text>
+    </svg>
+    <svg x="140mm" y="10mm">
+      <rect
+         width="60mm"
+         height="75mm"
+         rx="5"
+         ry="5"
+         x="1"
+         y="1"
+         style="fill:none;/*stroke:#000000;*/stroke-opacity:1" class="label red" />
+      <text
+         x="30mm"
+         y="16px"
+         xml:space="preserve"
+         style="font-size:16px;font-style:normal;font-weight:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans">title</text>
+      <text
+         x="30mm"
+         y="32px"
+         xml:space="preserve"
+         style="font-size:14px;font-style:normal;font-weight:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans">origin</text>
+      <text
+         x="10mm"
+         y="56px"
+		 width="20mm"
+         xml:space="preserve"
+         style="font-size:12px;font-style:normal;font-weight:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans">type</text>
+      <text
+         x="30mm"
+         y="56px"
+         xml:space="preserve"
+         style="font-size:12px;font-style:normal;font-weight:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans">duration</text>
+      <text
+         x="50mm"
+         y="56px"
+         xml:space="preserve"
+         style="font-size:12px;font-style:normal;font-weight:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans">temp</text>
+      <image
+         xlink:href="https://api.qrserver.com/v1/create-qr-code/?size=150x150&amp;data=It%27s%20me%20mario&amp;ecc=Q&amp;format=svg"
+         x="18.5mm"
+         y="45mm"
+         width="25mm"
+         height="25mm" />
+      <text
+         x="2mm"
+         y="75px"
+		 width="50mm"
+         id="text3942"
+         xml:space="preserve"
+         style="font-size:11px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans">* ingredient 1</text>
+    </svg>
+    <svg x="10mm" y="90mm">
+      <rect
+         width="60mm"
+         height="75mm"
+         rx="5"
+         ry="5"
+         x="1"
+         y="1"
+         style="fill:none;stroke:#000000;stroke-opacity:1" class="label black" />
+      <text
+         x="30mm"
+         y="16px"
+         xml:space="preserve"
+         style="font-size:16px;font-style:normal;font-weight:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans">title</text>
+      <text
+         x="30mm"
+         y="32px"
+         xml:space="preserve"
+         style="font-size:14px;font-style:normal;font-weight:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans">origin</text>
+      <text
+         x="10mm"
+         y="56px"
+		 width="20mm"
+         xml:space="preserve"
+         style="font-size:12px;font-style:normal;font-weight:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans">type</text>
+      <text
+         x="30mm"
+         y="56px"
+         xml:space="preserve"
+         style="font-size:12px;font-style:normal;font-weight:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans">duration</text>
+      <text
+         x="50mm"
+         y="56px"
+         xml:space="preserve"
+         style="font-size:12px;font-style:normal;font-weight:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans">temp</text>
+      <image
+         xlink:href="https://api.qrserver.com/v1/create-qr-code/?size=150x150&amp;data=It%27s%20me%20mario&amp;ecc=Q&amp;format=svg"
+         x="18.5mm"
+         y="45mm"
+         width="25mm"
+         height="25mm" />
+      <text
+         x="2mm"
+         y="75px"
+		 width="50mm"
+         id="text3942"
+         xml:space="preserve"
+         style="font-size:11px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans">* ingredient 1</text>
+    </svg>
+    <svg x="75mm" y="90mm">
+      <rect
+         width="60mm"
+         height="75mm"
+         rx="5"
+         ry="5"
+         x="1"
+         y="1"
+         style="fill:none;/*stroke:#000000;*/stroke-opacity:1" class="label smoked" />
+      <text
+         x="30mm"
+         y="16px"
+         xml:space="preserve"
+         style="font-size:16px;font-style:normal;font-weight:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans">title</text>
+      <text
+         x="30mm"
+         y="32px"
+         xml:space="preserve"
+         style="font-size:14px;font-style:normal;font-weight:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans">origin</text>
+      <text
+         x="10mm"
+         y="56px"
+		 width="20mm"
+         xml:space="preserve"
+         style="font-size:12px;font-style:normal;font-weight:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans">type</text>
+      <text
+         x="30mm"
+         y="56px"
+         xml:space="preserve"
+         style="font-size:12px;font-style:normal;font-weight:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans">duration</text>
+      <text
+         x="50mm"
+         y="56px"
+         xml:space="preserve"
+         style="font-size:12px;font-style:normal;font-weight:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans">temp</text>
+      <image
+         xlink:href="https://api.qrserver.com/v1/create-qr-code/?size=150x150&amp;data=It%27s%20me%20mario&amp;ecc=Q&amp;format=svg"
+         x="18.5mm"
+         y="45mm"
+         width="25mm"
+         height="25mm" />
+      <text
+         x="2mm"
+         y="75px"
+		 width="50mm"
+         id="text3942"
+         xml:space="preserve"
+         style="font-size:11px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans">* ingredient 1</text>
+    </svg>
+    <svg x="140mm" y="90mm">
+      <rect
+         width="60mm"
+         height="75mm"
+         rx="5"
+         ry="5"
+         x="1"
+         y="1"
+         style="fill:none;/*stroke:#000000;*/stroke-opacity:1" class="label red" />
+      <text
+         x="30mm"
+         y="16px"
+         xml:space="preserve"
+         style="font-size:16px;font-style:normal;font-weight:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans">title</text>
+      <text
+         x="30mm"
+         y="32px"
+         xml:space="preserve"
+         style="font-size:14px;font-style:normal;font-weight:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans">origin</text>
+      <text
+         x="10mm"
+         y="56px"
+		 width="20mm"
+         xml:space="preserve"
+         style="font-size:12px;font-style:normal;font-weight:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans">type</text>
+      <text
+         x="30mm"
+         y="56px"
+         xml:space="preserve"
+         style="font-size:12px;font-style:normal;font-weight:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans">duration</text>
+      <text
+         x="50mm"
+         y="56px"
+         xml:space="preserve"
+         style="font-size:12px;font-style:normal;font-weight:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans">temp</text>
+      <image
+         xlink:href="https://api.qrserver.com/v1/create-qr-code/?size=150x150&amp;data=It%27s%20me%20mario&amp;ecc=Q&amp;format=svg"
+         x="18.5mm"
+         y="45mm"
+         width="25mm"
+         height="25mm" />
+      <text
+         x="2mm"
+         y="75px"
+		 width="50mm"
+         id="text3942"
+         xml:space="preserve"
+         style="font-size:11px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans">* ingredient 1</text>
+    </svg>
+    <svg x="10mm" y="170mm">
+      <rect
+         width="60mm"
+         height="75mm"
+         rx="5"
+         ry="5"
+         x="1"
+         y="1"
+         style="fill:none;stroke:#000000;stroke-opacity:1" class="label black" />
+      <text
+         x="30mm"
+         y="16px"
+         xml:space="preserve"
+         style="font-size:16px;font-style:normal;font-weight:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans">title</text>
+      <text
+         x="30mm"
+         y="32px"
+         xml:space="preserve"
+         style="font-size:14px;font-style:normal;font-weight:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans">origin</text>
+      <text
+         x="10mm"
+         y="56px"
+		 width="20mm"
+         xml:space="preserve"
+         style="font-size:12px;font-style:normal;font-weight:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans">type</text>
+      <text
+         x="30mm"
+         y="56px"
+         xml:space="preserve"
+         style="font-size:12px;font-style:normal;font-weight:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans">duration</text>
+      <text
+         x="50mm"
+         y="56px"
+         xml:space="preserve"
+         style="font-size:12px;font-style:normal;font-weight:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans">temp</text>
+      <image
+         xlink:href="https://api.qrserver.com/v1/create-qr-code/?size=150x150&amp;data=It%27s%20me%20mario&amp;ecc=Q&amp;format=svg"
+         x="18.5mm"
+         y="45mm"
+         width="25mm"
+         height="25mm" />
+      <text
+         x="2mm"
+         y="75px"
+		 width="50mm"
+         id="text3942"
+         xml:space="preserve"
+         style="font-size:11px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans">* ingredient 1</text>
+    </svg>
+    <svg x="75mm" y="170mm">
+      <rect
+         width="60mm"
+         height="75mm"
+         rx="5"
+         ry="5"
+         x="1"
+         y="1"
+         style="fill:none;/*stroke:#000000;*/stroke-opacity:1" class="label smoked" />
+      <text
+         x="30mm"
+         y="16px"
+         xml:space="preserve"
+         style="font-size:16px;font-style:normal;font-weight:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans">title</text>
+      <text
+         x="30mm"
+         y="32px"
+         xml:space="preserve"
+         style="font-size:14px;font-style:normal;font-weight:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans">origin</text>
+      <text
+         x="10mm"
+         y="56px"
+		 width="20mm"
+         xml:space="preserve"
+         style="font-size:12px;font-style:normal;font-weight:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans">type</text>
+      <text
+         x="30mm"
+         y="56px"
+         xml:space="preserve"
+         style="font-size:12px;font-style:normal;font-weight:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans">duration</text>
+      <text
+         x="50mm"
+         y="56px"
+         xml:space="preserve"
+         style="font-size:12px;font-style:normal;font-weight:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans">temp</text>
+      <image
+         xlink:href="https://api.qrserver.com/v1/create-qr-code/?size=150x150&amp;data=It%27s%20me%20mario&amp;ecc=Q&amp;format=svg"
+         x="18.5mm"
+         y="45mm"
+         width="25mm"
+         height="25mm" />
+      <text
+         x="2mm"
+         y="75px"
+		 width="50mm"
+         id="text3942"
+         xml:space="preserve"
+         style="font-size:11px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans">* ingredient 1</text>
+    </svg>
+    <svg x="140mm" y="170mm">
+      <rect
+         width="60mm"
+         height="75mm"
+         rx="5"
+         ry="5"
+         x="1"
+         y="1"
+         style="fill:none;/*stroke:#000000;*/stroke-opacity:1" class="label red" />
+      <text
+         x="30mm"
+         y="16px"
+         xml:space="preserve"
+         style="font-size:16px;font-style:normal;font-weight:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans">title</text>
+      <text
+         x="30mm"
+         y="32px"
+         xml:space="preserve"
+         style="font-size:14px;font-style:normal;font-weight:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans">origin</text>
+      <text
+         x="10mm"
+         y="56px"
+		 width="20mm"
+         xml:space="preserve"
+         style="font-size:12px;font-style:normal;font-weight:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans">type</text>
+      <text
+         x="30mm"
+         y="56px"
+         xml:space="preserve"
+         style="font-size:12px;font-style:normal;font-weight:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans">duration</text>
+      <text
+         x="50mm"
+         y="56px"
+         xml:space="preserve"
+         style="font-size:12px;font-style:normal;font-weight:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans">temp</text>
+      <image
+         xlink:href="https://api.qrserver.com/v1/create-qr-code/?size=150x150&amp;data=It%27s%20me%20mario&amp;ecc=Q&amp;format=svg"
+         x="18.5mm"
+         y="45mm"
+         width="25mm"
+         height="25mm" />
+      <text
+         x="2mm"
+         y="75px"
+		 width="50mm"
+         id="text3942"
+         xml:space="preserve"
+         style="font-size:11px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans">* ingredient 1</text>
+    </svg>
+</svg>
