@@ -6,6 +6,9 @@ import os.path
 import io
 import re
 import pyqrcode
+import qrcode
+import base64
+
 
 box_dimensions = [60, 75]
 box_margins = [5, 5]
@@ -18,12 +21,19 @@ current_y = 0
 elements = [i for i in range(3)]
 labels = []
 
-http = urllib3.PoolManager()
+b_use_proxy = True
+
+data_source_xml = ''
+if b_use_proxy:
+    http = urllib3.ProxyManager('http://localhost:3128/')
+else:
+    http = urllib3.PoolManager()
+   
 data_source_request = http.request('GET', "http://mikael.hautin.fr/fileadmin/media/the/the_2.xml")
 if data_source_request.status != 200:
     print(data_source_request.status)
     os._exit(1)
-
+    
 data_source_xml = data_source_request.data.decode('utf-8')
 
 with xml.dom.minidom.parseString(data_source_xml) as data_source_dom:
@@ -50,16 +60,20 @@ with xml.dom.minidom.parseString(data_source_xml) as data_source_dom:
         else:
             current_x += box_dimensions[0] + box_margins[0]
 
-        url = pyqrcode.create(s_url, error='Q')
-        buffer = io.BytesIO()
-        url.svg(buffer, xmldecl=False, svgns=False, scale=2.55)
-        s_qr = buffer.getvalue().decode('UTF-8')
-        print(s_qr)
-        s_qr = s_qr.replace('<svg', '<svg x="18.5mm" y="45mm"')
-        s_qr = re.sub('(width|height)="[^"]+"', '\g<1>="35mm"', s_qr)
-        print(s_qr)
+        qr2 = qrcode.QRCode(
+            version=None,
+            error_correction=qrcode.constants.ERROR_CORRECT_Q,
+            box_size=10,
+            border=0,
+        )
+        qr2.add_data(s_url)
+        qr2.make(fit=True)
+        boutput2 = io.BytesIO()
+        qr2.make_image().save(boutput2)
 
-        # img2 = qrcode.make('Some data here')
+        # s_src= 'data:image/png;base64,%s' % base64.b64encode(boutput.getvalue()).decode().replace('\n', '')
+        s_src= 'data:image/png;base64,%s' % base64.b64encode(boutput2.getvalue()).decode().replace('\n', '')
+
 
         # <tea name="Racconto di Natale">
         # 	<kind name="thé noir indien" />
@@ -83,14 +97,14 @@ with xml.dom.minidom.parseString(data_source_xml) as data_source_dom:
             'type': s_type,
             'kind': s_kind,
             'origin': s_origin,
-            'qr': s_qr,
+            'qr_src' : s_src,
         })
 
         i_tea_count += 1
-        break
+        # break
 
 env = Environment(loader=FileSystemLoader(os.path.dirname(__file__)))
 template = env.get_template('template.svg.tpl')
 
 with open('labels.svg', 'w', encoding='UTF-8') as f_output:
-    f_output.write(template.render(labels=labels))
+    f_output.write(template.render(labels=labels, doc_height=(current_y + box_dimensions[1] + box_margins[1])))
