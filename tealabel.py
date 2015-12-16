@@ -22,19 +22,24 @@ elements = [i for i in range(3)]
 labels = []
 
 b_use_proxy = True
+b_use_file = True
 
-data_source_xml = ''
-if b_use_proxy:
-    http = urllib3.ProxyManager('http://localhost:3128/')
+if b_use_file:
+    with open ("the_2.xml", "r") as f_data:
+        data_source_xml = ' '.join(line.replace('\n', '') for line in f_data)
 else:
-    http = urllib3.PoolManager()
-   
-data_source_request = http.request('GET', "http://mikael.hautin.fr/fileadmin/media/the/the_2.xml")
-if data_source_request.status != 200:
-    print(data_source_request.status)
-    os._exit(1)
-    
-data_source_xml = data_source_request.data.decode('utf-8')
+    data_source_xml = ''
+    if b_use_proxy:
+        http = urllib3.ProxyManager('http://localhost:3128/')
+    else:
+        http = urllib3.PoolManager()
+       
+    data_source_request = http.request('GET', "http://mikael.hautin.fr/fileadmin/media/the/the_2.xml")
+    if data_source_request.status != 200:
+        print(data_source_request.status)
+        os._exit(1)
+        
+    data_source_xml = data_source_request.data.decode('utf-8')
 
 with xml.dom.minidom.parseString(data_source_xml) as data_source_dom:
     i_tea_count = 0
@@ -75,7 +80,6 @@ with xml.dom.minidom.parseString(data_source_xml) as data_source_dom:
         boutput2 = io.BytesIO()
         qr2.make_image().save(boutput2)
 
-        # s_src= 'data:image/png;base64,%s' % base64.b64encode(boutput.getvalue()).decode().replace('\n', '')
         s_src= 'data:image/png;base64,%s' % base64.b64encode(boutput2.getvalue()).decode().replace('\n', '')
 
 
@@ -106,9 +110,10 @@ with xml.dom.minidom.parseString(data_source_xml) as data_source_dom:
         })
 
         i_tea_count += 1
-        if i_tea_count > 9:
-            break
+        # if i_tea_count > 9:
+            # break
 
+# TODO multiple files (SVG does not manage multi pages yet)
 env = Environment(loader=FileSystemLoader(os.path.dirname(__file__)))
 template = env.get_template('template.svg.tpl')
 
