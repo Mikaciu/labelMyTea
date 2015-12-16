@@ -60,6 +60,10 @@ with xml.dom.minidom.parseString(data_source_xml) as data_source_dom:
         else:
             current_x += box_dimensions[0] + box_margins[0]
 
+        s_end_page = ""
+        if (i_tea_count % 9) == 8:
+            s_end_page = "</page><page>"
+            
         qr2 = qrcode.QRCode(
             version=None,
             error_correction=qrcode.constants.ERROR_CORRECT_Q,
@@ -98,13 +102,18 @@ with xml.dom.minidom.parseString(data_source_xml) as data_source_dom:
             'kind': s_kind,
             'origin': s_origin,
             'qr_src' : s_src,
+            'endpage' : s_end_page,
         })
 
         i_tea_count += 1
-        # break
+        if i_tea_count > 9:
+            break
 
 env = Environment(loader=FileSystemLoader(os.path.dirname(__file__)))
 template = env.get_template('template.svg.tpl')
 
 with open('labels.svg', 'w', encoding='UTF-8') as f_output:
-    f_output.write(template.render(labels=labels, doc_height=(current_y + box_dimensions[1] + box_margins[1])))
+    f_output.write(template.render(
+        labels=labels, 
+        doc_height=(current_y + box_dimensions[1] + box_margins[1]))
+    )
