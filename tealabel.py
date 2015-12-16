@@ -8,21 +8,15 @@ import qrcode
 import urllib3
 from jinja2 import Environment, FileSystemLoader
 
-box_dimensions = [60, 75]
-box_margins = [5, 5]
-
-# base_x = 10
-# base_y = 10
-# current_x = 0
-# current_y = 0
-
 elements = [i for i in range(3)]
 labels = []
 
 
-class tealabel:
+class tea_label:
     base_x = 10
     base_y = 10
+    box_dimensions = [60, 75]
+    box_margins = [5, 5]
 
     def __init__(self):
         self.current_x = 0
@@ -33,8 +27,8 @@ class tealabel:
     def write_to_page(self, i_page_number, l_labels):
         with open('labels{}.svg'.format(i_page_number), 'w', encoding='UTF-8') as f_output:
             f_output.write(self.template.render(
-                labels=l_labels,
-                doc_height=(self.current_y + box_dimensions[1] + box_margins[1]))
+                    labels=l_labels,
+                    doc_height=(self.current_y + tea_label.box_dimensions[1] + tea_label.box_margins[1]))
             )
 
     def load_data(self, b_use_proxy=False, b_use_file=False):
@@ -70,6 +64,8 @@ class tealabel:
                     # reset y coordinate
                     self.current_y = 0
 
+                s_temp = s_duration = ''
+
                 s_name = o_current_tea.getAttribute('name')
 
                 dom_shop = o_current_tea.getElementsByTagName('shop')[0]
@@ -80,25 +76,36 @@ class tealabel:
                 s_kind = dom_kind.getAttribute('code')
                 s_type = dom_kind.getAttribute('name')
 
+                dom_temp = o_current_tea.getElementsByTagName('temp')
+                if len(dom_temp) > 0:
+                    s_temp = dom_temp[0].getAttribute('value')
+                if s_temp != '':
+                    s_temp = '{} °C'.format(s_temp)
+
+                dom_duration = o_current_tea.getElementsByTagName('duration')
+                if len(dom_duration) > 0:
+                    s_duration = dom_duration[0].getAttribute('value')
+                if s_duration != '':
+                    s_duration = '{} mn'.format(s_duration)
+
                 # positioning
                 if (i_tea_count % 3) == 0:
-                    self.current_x = tealabel.base_x
+                    self.current_x = tea_label.base_x
 
                     if self.current_y > 0:
-                        self.current_y += box_dimensions[1] + box_margins[1]
+                        self.current_y += tea_label.box_dimensions[1] + tea_label.box_margins[1]
                     else:
-                        self.current_y = tealabel.base_y
+                        self.current_y = tea_label.base_y
                 else:
-                    self.current_x += box_dimensions[0] + box_margins[0]
+                    self.current_x += tea_label.box_dimensions[0] + tea_label.box_margins[0]
 
-                if s_url == '':
-                    s_src = ''
-                else:
+                s_src = ''
+                if s_url != '':
                     qr2 = qrcode.QRCode(
-                        version=None,
-                        error_correction=qrcode.constants.ERROR_CORRECT_Q,
-                        box_size=10,
-                        border=0,
+                            version=None,
+                            error_correction=qrcode.constants.ERROR_CORRECT_Q,
+                            box_size=10,
+                            border=0,
                     )
                     qr2.add_data(s_url)
                     qr2.make(fit=True)
@@ -107,6 +114,15 @@ class tealabel:
 
                     s_src = 'data:image/png;base64,%s' % base64.b64encode(boutput2.getvalue()).decode().replace('\n',
                                                                                                                 '')
+
+                l_ingredients = []
+                dom_ingredientlist = o_current_tea.getElementsByTagName("ingredientlist")
+                if len(dom_ingredientlist) > 0:
+                    l_ingredients = [i.getAttribute('name') for i in
+                                     dom_ingredientlist[0].getElementsByTagName(
+                                             'ingredient')]
+
+                s_ingredients = ', '.join(l_ingredients)
 
                 # <tea name="Racconto di Natale">
                 # 	<kind name="thé noir indien" />
@@ -131,6 +147,9 @@ class tealabel:
                     'kind': s_kind,
                     'origin': s_origin,
                     'qr_src': s_src,
+                    'ingredients': s_ingredients,
+                    'temp': s_temp,
+                    'duration': s_duration,
                 })
 
                 i_tea_count += 1
@@ -139,5 +158,5 @@ class tealabel:
         self.write_to_page(i_page_number, labels)
 
 
-o_tea_label_maker = tealabel()
+o_tea_label_maker = tea_label()
 o_tea_label_maker.process()
