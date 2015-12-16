@@ -1,21 +1,27 @@
 <svg  xmlns="http://www.w3.org/2000/svg"
       xmlns:xlink="http://www.w3.org/1999/xlink"
-	  width="210mm" height="{{ doc_height }}mm"
+	  width="210mm" height="{{ doc_height }}mm" viewBox="0 0 210mm {{ doc_height }}mm" streamable="true"
 	  version="1.2"
 	  >
 	<style type="text/css">
 		<![CDATA[
-		rect.label{fill:none;stroke:#000000;stroke-opacity:1}
+		
+		rect.label{fill:none;stroke:navy;stroke-opacity:1;stroke-width:0.5mm;}
 		rect.label.black{stroke:dimgrey;}
 		rect.label.red{stroke:maroon;}
 		rect.label.infusion{stroke:LightSeaGreen;}
 		rect.label.green{stroke:ForestGreen;}
 		rect.label.smoked{stroke:peru;}
-		text{}
+		text.title{font-size:16px;font-style:normal;font-weight:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans}
+		text.origin{font-size:14px;font-style:normal;font-weight:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans}
+		text.type{font-size:12px;font-style:normal;font-weight:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans}
+		text.duration{font-size:12px;font-style:normal;font-weight:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans}
+		text.temp{font-size:12px;font-style:normal;font-weight:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans}
+		text.ingredients{font-size:11px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans}
 		]]>
 	</style>
 	{% for label in labels %}
-    <svg x="{{ label.x }}mm" y="{{ label.y }}mm">
+	<svg x="{{ label.x }}mm" y="{{ label.y }}mm">
       <rect
          width="60mm"
          height="65mm"
@@ -28,28 +34,28 @@
          x="30mm"
          y="16px"
          xml:space="preserve"
-         style="font-size:16px;font-style:normal;font-weight:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans">{{ label.name }}</text>
+         class="title">{{ label.name }}</text>
       <text
          x="30mm"
          y="32px"
          xml:space="preserve"
-         style="font-size:14px;font-style:normal;font-weight:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans">{{ label.origin }}</text>
+         class="origin">{{ label.origin }}</text>
       <text
          x="10mm"
          y="56px"
 		 width="20mm"
          xml:space="preserve"
-         style="font-size:12px;font-style:normal;font-weight:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans">{{ label.type }}</text>
+         class="type">{{ label.type }}</text>
       <text
          x="30mm"
          y="56px"
          xml:space="preserve"
-         style="font-size:12px;font-style:normal;font-weight:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans">duration</text>
+         class="duration">duration</text>
       <text
          x="50mm"
          y="56px"
          xml:space="preserve"
-         style="font-size:12px;font-style:normal;font-weight:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans">temp</text>
+         class="temp">temp</text>
       <image
          xlink:href="{{ label.qr_src }}"
          x="21mm"
@@ -62,7 +68,7 @@
 		 width="50mm"
          id="text3942"
          xml:space="preserve"
-         style="font-size:11px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans">* ingredient 1</text>
+         class="ingredients">* ingredient 1</text>
     </svg>
     {% endfor %}
 </svg>
