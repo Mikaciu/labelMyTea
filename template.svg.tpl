@@ -16,13 +16,14 @@
 		text.origin{font-size:14px;font-style:normal;font-weight:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans}
 		text.type{font-size:12px;font-style:normal;font-weight:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans}
 		text.duration{font-size:12px;font-style:normal;font-weight:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans}
-		text.temp{font-size:12px;font-style:normal;font-weight:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans}
-		text.ingredients{font-size:11px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans}
+		text.temp{text-anchor:middle;font-size:12px;font-style:normal;font-weight:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans;width:10mm;color:white;}
+		foreignObject.ingredients{font-size:11px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans}
+		foreignObject.ingredients p{text-align:center;}
 		]]>
 	</style>
 	{% for label in labels %}
 	<svg x="{{ label.x }}mm" y="{{ label.y }}mm">
-      <rect
+		<rect
          width="60mm"
          height="65mm"
          rx="5"
@@ -30,45 +31,69 @@
          x="1"
          y="1"
          style="" class="label {{ label.kind }}" />
-      <text
+		<text
          x="30mm"
          y="16px"
          xml:space="preserve"
          class="title">{{ label.name }}</text>
-      <text
+		<text
          x="30mm"
-         y="32px"
+         y="40px"
          xml:space="preserve"
          class="origin">{{ label.origin }}</text>
-      <text
-         x="10mm"
-         y="56px"
-		 width="20mm"
+		<text
+         x="30mm"
+         y="64px"
          xml:space="preserve"
          class="type">{{ label.type }}</text>
-      <text
-         x="30mm"
-         y="56px"
-         xml:space="preserve"
-         class="duration">duration</text>
-      <text
-         x="50mm"
-         y="56px"
-         xml:space="preserve"
-         class="temp">temp</text>
-      <image
+		<foreignObject
+         x="2mm"
+         y="65px"
+         width="56mm"
+         height="20mm"
+         class="ingredients"
+         requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
+			<p xmlns="http://www.w3.org/1999/xhtml">{{ label.ingredients}}</p>
+		</foreignObject>
+		<image
          xlink:href="{{ label.qr_src }}"
          x="21mm"
          y="40mm"
          width="20mm"
          height="20mm" />
-      <text
-         x="2mm"
-         y="75px"
-		 width="50mm"
-         id="text3942"
+
+		<text
+         x="50mm"
+         y="50mm"
+         height="5mm"
+         width="20mm"
+         style="text-align:center;color:white;"
          xml:space="preserve"
-         class="ingredients">* ingredient 1</text>
-    </svg>
+         class="temp">{{ label.temp }}</text>
+         <rect
+         width="10mm"
+         height="20mm"
+         rx="5"
+         ry="5"
+         x="45mm"
+         y="40mm"
+         style="fill:none;stroke:#000000;"
+         />
+
+		<text
+         x="10mm"
+         y="50mm"
+         xml:space="preserve"
+         class="duration">{{ label.duration }}</text>
+         <rect
+         width="10mm"
+         height="20mm"
+         rx="5"
+         ry="5"
+         x="5mm"
+         y="40mm"
+         style="fill:none;stroke:#000000;"
+         />
+	</svg>
     {% endfor %}
 </svg>
