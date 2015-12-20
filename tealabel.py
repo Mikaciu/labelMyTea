@@ -12,7 +12,7 @@ elements = [i for i in range(3)]
 labels = []
 
 
-class tea_label:
+class TeaLabel:
     base_x = 10
     base_y = 10
     box_dimensions = [60, 75]
@@ -28,7 +28,7 @@ class tea_label:
         with open('labels{}.svg'.format(i_page_number), 'w', encoding='UTF-8') as f_output:
             f_output.write(self.template.render(
                     labels=l_labels,
-                    doc_height=(self.current_y + tea_label.box_dimensions[1] + tea_label.box_margins[1]))
+                    doc_height=(self.current_y + TeaLabel.box_dimensions[1] + TeaLabel.box_margins[1]))
             )
 
     def load_data(self, b_use_proxy=False, b_use_file=False):
@@ -90,14 +90,14 @@ class tea_label:
 
                 # positioning
                 if (i_tea_count % 3) == 0:
-                    self.current_x = tea_label.base_x
+                    self.current_x = TeaLabel.base_x
 
                     if self.current_y > 0:
-                        self.current_y += tea_label.box_dimensions[1] + tea_label.box_margins[1]
+                        self.current_y += TeaLabel.box_dimensions[1] + TeaLabel.box_margins[1]
                     else:
-                        self.current_y = tea_label.base_y
+                        self.current_y = TeaLabel.base_y
                 else:
-                    self.current_x += tea_label.box_dimensions[0] + tea_label.box_margins[0]
+                    self.current_x += TeaLabel.box_dimensions[0] + TeaLabel.box_margins[0]
 
                 s_src = ''
                 if s_url != '':
@@ -124,21 +124,6 @@ class tea_label:
 
                 s_ingredients = ', '.join(l_ingredients)
 
-                # <tea name="Racconto di Natale">
-                # 	<kind name="thé noir indien" />
-                # 	<shop name="La Via del Tè" location="Firenze" url="http://www.laviadelte.com" />
-                # 	<ingredientlist>
-                # 		<ingredient name="pomme" />
-                # 		<ingredient name="cannelle" />
-                # 		<ingredient name="clous de girofle" />
-                # 		<ingredient name="coriandre" />
-                # 		<ingredient name="fraise en morceaux" />
-                # 		<ingredient name="souci des jardins" />
-                # 	</ingredientlist>
-                # 	<locationlist>
-                # 		<location name="bureau" />
-                # 	</locationlist>
-                # </tea>
                 labels.append({
                     'x': self.current_x,
                     'y': self.current_y,
@@ -158,5 +143,5 @@ class tea_label:
         self.write_to_page(i_page_number, labels)
 
 
-o_tea_label_maker = tea_label()
+o_tea_label_maker = TeaLabel()
 o_tea_label_maker.process()
