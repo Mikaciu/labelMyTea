@@ -13,18 +13,41 @@
 		svg.label.green foreignObject.header h1{color:ForestGreen;}
 		svg.label.smoked foreignObject.header h1{color:peru;}
 
-		text.title{font-size:16px;font-style:normal;font-weight:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans}
+		@font-face{
+            font-family: Lato-Light;
+            src: url('./fonts/Lato-Light.ttf'),
+            url('./fonts/Lato-Light.ttf');
+        }
+
+		@font-face{
+            font-family: Lato-Regular;
+            src: url('./fonts/Lato-Regular.ttf'),
+            url('./fonts/Lato-Regular.ttf');
+        }
+
+		@font-face{
+            font-family: PT-Sans-Bold;
+            src: url('./fonts/PT_Sans-Web-Bold.ttf'),
+            url('./fonts/PT_Sans-Web-Bold.ttf');
+        }
+
+		@font-face{
+            font-family: PT-Sans;
+            src: url('./fonts/PT_Sans-Web-Regular.ttf'),
+            url('./fonts/PT_Sans-Web-Regular.ttf');
+        }
+
+		text.title{font-size:16px;font-style:normal;font-weight:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;}
 		text.origin{font-size:14px;font-style:normal;font-weight:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans}
-		text.type{font-size:12px;font-style:normal;font-weight:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans}
-		text.duration{font-size:14pt;font-style:normal;font-weight:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans}
-		text.temp{text-anchor:middle;font-size:14pt;font-style:normal;font-weight:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans;width:10mm;color:white;}
+		text.duration{font-size:14pt;font-style:normal;font-weight:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Lato-Regular}
+		text.temp{text-anchor:middle;font-size:14pt;font-style:normal;font-weight:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Lato-Regular;width:10mm;color:white;}
 
 		foreignObject.header h1,foreignObject.header h2{margin:0;padding:0;font-style:normal;font-weight:normal;text-align:center;}
 
-		foreignObject.header h1{font-size:17pt;}
-		foreignObject.header h2{font-size:12pt;}
+		foreignObject.header h1{font-size:13pt;font-family:PT-Sans-Bold;font-weight:700;}
+		foreignObject.header h2{font-size:12pt;margin-top:1mm;font-family:PT-Sans;}
 
-		p.ingredients{font-size:1em;text-align:center;margin:0;}
+		p.ingredients{font-size:8pt;text-align:center;margin:0;font-family:Lato-Light;font-weight:300;}
 		]]>
 	</style>
 	{% for label in labels %}
@@ -39,18 +62,10 @@
          x="2mm"
          y="2mm"
          width="56mm"
-         height="8mm"
+         height="20mm"
          class="header"
          requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
 			<h1 xmlns="http://www.w3.org/1999/xhtml" class="name">{{ label.name }}</h1>
-        </foreignObject>
-        <foreignObject
-         x="2mm"
-         y="13mm"
-         width="56mm"
-         height="6mm"
-         class="header"
-         requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
 			<h2 xmlns="http://www.w3.org/1999/xhtml" class="origin">{{ label.origin }}</h2>
         </foreignObject>
         <svg x="10mm" y="25mm" class="leaf">
