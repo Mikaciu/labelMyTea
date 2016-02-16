@@ -22,7 +22,7 @@ class TeaLabel:
         self.current_x = 0
         self.current_y = 0
         self.env = Environment(loader=FileSystemLoader(os.path.dirname(__file__)))
-        self.template = self.env.get_template('template.svg.tpl')
+        self.template = self.env.get_template('template_v2.svg')
 
     def write_to_page(self, i_page_number, l_labels):
         with open('labels{}.svg'.format(i_page_number), 'w', encoding='UTF-8') as f_output:
@@ -80,13 +80,13 @@ class TeaLabel:
                 if len(dom_temp) > 0:
                     s_temp = dom_temp[0].getAttribute('value')
                 if s_temp != '':
-                    s_temp = '{} °C'.format(s_temp)
+                    s_temp = '{}°'.format(s_temp)
 
                 dom_duration = o_current_tea.getElementsByTagName('duration')
                 if len(dom_duration) > 0:
                     s_duration = dom_duration[0].getAttribute('value')
                 if s_duration != '':
-                    s_duration = '{} mn'.format(s_duration)
+                    s_duration = '{}\''.format(s_duration)
 
                 # positioning
                 if (i_tea_count % 3) == 0:
