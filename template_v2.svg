@@ -12,7 +12,7 @@
 		@font-face{font-family:PT-Sans-Bold;src:url('./fonts/PT_Sans-Web-Bold.ttf'),url('./fonts/PT_Sans-Web-Bold.ttf');}
 		@font-face{font-family:PT-Sans;src:url('./fonts/PT_Sans-Web-Regular.ttf'),url('./fonts/PT_Sans-Web-Regular.ttf');}
 
-		text.figures{font-size:14pt;text-align:center;text-anchor:middle;font-family:Lato;font-weight:300;}
+		text.figures{font-size:14pt;text-align:center;text-anchor:middle;font-family:Lato-Regular;font-weight:300;}
 		text.duration{}
 		text.temp{}
 
