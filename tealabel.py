@@ -51,7 +51,7 @@ class TeaLabel:
         return data_source_xml
 
     def process(self):
-        with xml.dom.minidom.parseString(self.load_data(b_use_proxy=True, b_use_file=True)) as data_source_dom:
+        with xml.dom.minidom.parseString(self.load_data(b_use_proxy=False, b_use_file=False)) as data_source_dom:
             labels = []
             i_tea_count = 0
             i_page_number = 1
