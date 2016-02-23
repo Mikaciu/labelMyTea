@@ -7,7 +7,6 @@
 		<![CDATA[
 		rect.label-border{fill:none;stroke:black;stroke-opacity:1;stroke-width:0.2mm;stroke-dasharray:5, 5, 1, 5;}
 
-		@font-face{font-family:Lato-Light;src:url('./fonts/Lato-Light.ttf'),url('./fonts/Lato-Light.ttf');}
 		@font-face{font-family:Lato-Regular;src:url('./fonts/Lato-Regular.ttf'),url('./fonts/Lato-Regular.ttf');}
 		@font-face{font-family:PT-Sans-Bold;src:url('./fonts/PT_Sans-Web-Bold.ttf'),url('./fonts/PT_Sans-Web-Bold.ttf');}
 		@font-face{font-family:PT-Sans;src:url('./fonts/PT_Sans-Web-Regular.ttf'),url('./fonts/PT_Sans-Web-Regular.ttf');}
