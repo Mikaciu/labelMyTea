@@ -17,7 +17,7 @@
 
 		foreignObject.header h1,foreignObject.header h2{margin:0;padding:0;font-style:normal;font-weight:normal;text-align:center;}
 
-		foreignObject.header h1{font-size:14pt;font-family:PT-Sans-Bold;border-bottom:1px solid #E1E1E1;padding-bottom:1.1mm;}
+		foreignObject.header h1{font-size:14pt;font-family:PT-Sans-Bold;border-bottom:1px solid #E1E1E1;padding-bottom:1.1mm;line-height:18pt;}
 		foreignObject.header h2{font-size:12pt;margin-top:1mm;font-family:PT-Sans;}
 
 		svg.label.black foreignObject.header h1{color:#1A1A1A;}
@@ -43,12 +43,12 @@
 		 y="2mm"
 		 width="56mm"
 		 height="20mm"
-		 class="header"
+		 class="header" render-order="1"
 		 requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
 			<h1 xmlns="http://www.w3.org/1999/xhtml" class="name">{{ label.name }}</h1>
 			<h2 xmlns="http://www.w3.org/1999/xhtml" class="origin">{{ label.origin }}</h2>
 		</foreignObject>
-		<svg x="10mm" y="22.4mm" class="leaf">
+		<svg x="10mm" y="22.4mm" class="leaf" render-order="-1">
 			<g fill="#F9F9F9" transform="matrix(.20 0 0 .20 50 3)">
 				<path d="m40.924 291.98c-34.179-0.14-91.312-21.4-77.381-64.28 21.129-80.77 99.428-131.94 177.93-146.69 43.33-10.958 88.91-16.922 129.5-36.003-72.29 17.057-148.2 25.566-219.05 49.892-51.263 21.041-96.465 64.991-106.36 121.11-29.141-12.41-23.662-66.63-13.848-95.61 21.516-60.28 77.527-102.51 139.14-115.49 80.368-24.683 166.67-9.6915 246.72-34.897 28.636-6.9519 87.419-59.476 66.002 3.5335-28.63 103.58-84.88 204.54-173.11 268.69-50.41 30.95-109.79 52.79-169.54 49.74z"/>
 				<path d="m41.579 290.09c-33.767 0.29-86.595-17.93-76.745-60.6 18.56-74.99 88.429-125.86 160.9-143.05 49.01-12.666 99.95-19.601 146.67-40.008-37.24-0.993-73.27 14.78-110.21 19.711-68.157 11.337-143.54 26.01-188.08 84.487-19.956 15.052-19.963 55.246-36.129 63.523-32.645-63.7 5.708-139.45 60.425-177.01 81.823-50.56 181.34-44.541 273.25-54.817 39.425 0.47612 86.953-33.076 112.21-40.471 4.3118 42.922-19.43 82.999-34.956 121.61-42.76 92.438-111.93 181.7-212.9 212.64-30.28 10.27-62.407 15.89-94.431 13.99z"/>
