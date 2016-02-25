@@ -8,15 +8,16 @@ import qrcode
 import urllib3
 from jinja2 import Environment, FileSystemLoader
 
-elements = [i for i in range(3)]
 labels = []
 
 
 class TeaLabel:
-    base_x = 10
-    base_y = 10
-    box_dimensions = [60, 75]
+    base_x = 3
+    base_y = 3
+    box_dimensions = [60, 60]
     box_margins = [5, 5]
+    i_labels_per_line = 3
+    i_labels_per_page = 12
 
     def __init__(self):
         self.current_x = 0
@@ -57,7 +58,7 @@ class TeaLabel:
             i_page_number = 1
             for o_current_tea in data_source_dom.getElementsByTagName("tea"):
                 # flush page
-                if (i_tea_count % 9) == 0 and i_tea_count > 0:
+                if (i_tea_count % TeaLabel.i_labels_per_page) == 0 and i_tea_count > 0:
                     self.write_to_page(i_page_number, labels)
                     labels = []
                     i_page_number += 1
@@ -89,7 +90,7 @@ class TeaLabel:
                     s_duration = '{}\''.format(s_duration)
 
                 # positioning
-                if (i_tea_count % 3) == 0:
+                if (i_tea_count % TeaLabel.i_labels_per_line) == 0:
                     self.current_x = TeaLabel.base_x
 
                     if self.current_y > 0:
