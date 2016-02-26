@@ -34,7 +34,7 @@ class TeaLabel:
 
     def load_data(self, b_use_proxy=False, b_use_file=False):
         if b_use_file:
-            with open("the_2.xml", "r") as f_data:
+            with open("the.xml", "r") as f_data:
                 data_source_xml = ' '.join(line.replace('\n', '') for line in f_data)
         else:
             data_source_xml = ''
@@ -43,7 +43,7 @@ class TeaLabel:
             else:
                 http = urllib3.PoolManager()
 
-            data_source_request = http.request('GET', "http://mikael.hautin.fr/fileadmin/media/the/the_2.xml")
+            data_source_request = http.request('GET', "http://mikael.hautin.fr/fileadmin/media/the/the.xml")
             if data_source_request.status != 200:
                 print(data_source_request.status)
                 os._exit(1)
