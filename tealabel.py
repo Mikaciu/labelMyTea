@@ -45,7 +45,7 @@ class TeaLabel:
             else:
                 http = urllib3.PoolManager()
 
-            data_source_request = http.request('GET', "http://mikael.hautin.fr/fileadmin/media/the/the_2.xml")
+            data_source_request = http.request('GET', "http://mikael.hautin.fr/fileadmin/media/the/the.xml")
             if data_source_request.status != 200:
                 print(data_source_request.status)
                 os._exit(1)
