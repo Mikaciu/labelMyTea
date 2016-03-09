@@ -19,9 +19,11 @@ class TeaLabel:
     i_labels_per_line = 3
     i_labels_per_page = 12
 
-    def __init__(self):
+    def __init__(self, use_proxy=False, use_file=False):
         self.current_x = 0
         self.current_y = 0
+        self.b_use_proxy = use_proxy
+        self.b_use_file = use_file
         self.env = Environment(loader=FileSystemLoader(os.path.dirname(__file__)))
         self.template = self.env.get_template('template_v2.svg')
 
@@ -32,18 +34,18 @@ class TeaLabel:
                     doc_height=(self.current_y + TeaLabel.box_dimensions[1] + TeaLabel.box_margins[1]))
             )
 
-    def load_data(self, b_use_proxy=False, b_use_file=False):
-        if b_use_file:
+    def load_data(self):
+        if self.b_use_file:
             with open("the.xml", "r") as f_data:
                 data_source_xml = ' '.join(line.replace('\n', '') for line in f_data)
         else:
             data_source_xml = ''
-            if b_use_proxy:
+            if self.b_use_proxy:
                 http = urllib3.ProxyManager('http://localhost:3128/')
             else:
                 http = urllib3.PoolManager()
 
-            data_source_request = http.request('GET', "http://mikael.hautin.fr/fileadmin/media/the/the.xml")
+            data_source_request = http.request('GET', "http://mikael.hautin.fr/fileadmin/media/the/the_2.xml")
             if data_source_request.status != 200:
                 print(data_source_request.status)
                 os._exit(1)
@@ -52,7 +54,7 @@ class TeaLabel:
         return data_source_xml
 
     def process(self):
-        with xml.dom.minidom.parseString(self.load_data(b_use_proxy=False, b_use_file=False)) as data_source_dom:
+        with xml.dom.minidom.parseString(self.load_data()) as data_source_dom:
             labels = []
             i_tea_count = 0
             i_page_number = 1
@@ -144,5 +146,5 @@ class TeaLabel:
         self.write_to_page(i_page_number, labels)
 
 
-o_tea_label_maker = TeaLabel()
+o_tea_label_maker = TeaLabel(use_file = True)
 o_tea_label_maker.process()
