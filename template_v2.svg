@@ -22,6 +22,7 @@
 
 		svg.label.black foreignObject.header h1{color:#1A1A1A;}
 		svg.label.green foreignObject.header h1{color:#8CE261;}
+		svg.label.oolong foreignObject.header h1{color:#618CE2;}
 		svg.label.infusion foreignObject.header h1{color:#DD8ADE;}
 		svg.label.red foreignObject.header h1{color:#CD3F3F;}
 		svg.label.smoked foreignObject.header h1{color:#A78686;}
