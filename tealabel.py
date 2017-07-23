@@ -4,6 +4,7 @@ import io
 import os.path
 import xml.dom.minidom
 
+import certifi
 import qrcode
 import urllib3
 from jinja2 import Environment, FileSystemLoader
@@ -30,8 +31,8 @@ class TeaLabel:
     def write_to_page(self, i_page_number, l_labels):
         with open('labels{}.svg'.format(i_page_number), 'w', encoding='UTF-8') as f_output:
             f_output.write(self.template.render(
-                    labels=l_labels,
-                    doc_height=(self.current_y + TeaLabel.box_dimensions[1] + TeaLabel.box_margins[1]))
+                labels=l_labels,
+                doc_height=(self.current_y + TeaLabel.box_dimensions[1] + TeaLabel.box_margins[1]))
             )
 
     def load_data(self):
@@ -39,13 +40,15 @@ class TeaLabel:
             with open("the.xml", "r") as f_data:
                 data_source_xml = ' '.join(line.replace('\n', '') for line in f_data)
         else:
-            data_source_xml = ''
             if self.b_use_proxy:
                 http = urllib3.ProxyManager('http://localhost:3128/')
             else:
-                http = urllib3.PoolManager()
+                http = urllib3.PoolManager(
+                    cert_reqs='CERT_REQUIRED',
+                    ca_certs=certifi.where()
+                )
 
-            data_source_request = http.request('GET', "http://mikael.hautin.fr/fileadmin/media/the/the.xml")
+            data_source_request = http.request('GET', "https://mikael.hautin.fr/fileadmin/media/the/the.xml")
             if data_source_request.status != 200:
                 print(data_source_request.status)
                 os._exit(1)
@@ -105,10 +108,10 @@ class TeaLabel:
                 s_src = ''
                 if s_url != '':
                     qr2 = qrcode.QRCode(
-                            version=None,
-                            error_correction=qrcode.constants.ERROR_CORRECT_Q,
-                            box_size=10,
-                            border=0,
+                        version=None,
+                        error_correction=qrcode.constants.ERROR_CORRECT_Q,
+                        box_size=10,
+                        border=0,
                     )
                     qr2.add_data(s_url)
                     qr2.make(fit=True)
@@ -123,7 +126,7 @@ class TeaLabel:
                 if len(dom_ingredientlist) > 0:
                     l_ingredients = [i.getAttribute('name') for i in
                                      dom_ingredientlist[0].getElementsByTagName(
-                                             'ingredient')]
+                                         'ingredient')]
 
                 s_ingredients = ', '.join(l_ingredients)
 
@@ -146,5 +149,5 @@ class TeaLabel:
         self.write_to_page(i_page_number, labels)
 
 
-o_tea_label_maker = TeaLabel(use_file = True)
+o_tea_label_maker = TeaLabel(use_file=False)
 o_tea_label_maker.process()
