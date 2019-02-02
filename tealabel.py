@@ -26,9 +26,19 @@ class TeaLabel:
 
         self.parameters = {}
         self.handle_arguments()
+        self.remove_previously_generated_files()
+
         # Init Jinja2 template
         self.env = Environment(loader=FileSystemLoader(os.path.dirname(__file__)))
         self.template = self.env.get_template(self.parameters['template_file'])
+
+    def remove_previously_generated_files(self):
+        generated_file_prefix, generated_file_ext = os.path.splitext(self.parameters['generated_file_name'])
+        file_regex = re.compile('{}\d+{}'.format(generated_file_prefix, generated_file_ext))
+        for current_file in os.scandir():
+            if file_regex.match(current_file.name):
+                print('Removing the file {}'.format(current_file.path))
+                os.remove(current_file.path)
 
     def handle_arguments(self):
         arg_parser = argparse.ArgumentParser(description='Generates tea labels in svg format')
