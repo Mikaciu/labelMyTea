@@ -1,15 +1,15 @@
 #!/usr/bin/env python3
 import base64
 import io
+import re
 import os.path
 import xml.dom.minidom
 
+import argparse
 import certifi
 import qrcode
 import urllib3
 from jinja2 import Environment, FileSystemLoader
-
-labels = []
 
 
 class TeaLabel:
@@ -20,13 +20,28 @@ class TeaLabel:
     i_labels_per_line = 3
     i_labels_per_page = 12
 
-    def __init__(self, use_proxy=False, use_file=False):
+    def __init__(self):
         self.current_x = 0
         self.current_y = 0
-        self.b_use_proxy = use_proxy
-        self.b_use_file = use_file
+
+        self.parameters = {}
+        self.handle_arguments()
+        # Init Jinja2 template
         self.env = Environment(loader=FileSystemLoader(os.path.dirname(__file__)))
-        self.template = self.env.get_template('template_v2.svg')
+        self.template = self.env.get_template(self.parameters['template_file'])
+
+    def handle_arguments(self):
+        arg_parser = argparse.ArgumentParser(description='Generates tea labels in svg format')
+
+        local_or_download_group = arg_parser.add_mutually_exclusive_group(required=True)
+        local_or_download_group.add_argument('--source-file', help='The path to the XML file to use as source')
+        local_or_download_group.add_argument('--download-url', help='The url from which to download the XML file')
+
+        arg_parser.add_argument('--proxy', required=False, default='')
+        arg_parser.add_argument('--template-file', required=False, default='template_v2.svg')
+        arg_parser.add_argument('--generated-file-name', required=False, default='labels.svg')
+
+        self.parameters = vars(arg_parser.parse_args())
 
     def write_to_page(self, i_page_number, l_labels):
         with open('labels{}.svg'.format(i_page_number), 'w', encoding='UTF-8') as f_output:
@@ -36,22 +51,22 @@ class TeaLabel:
             )
 
     def load_data(self):
-        if self.b_use_file:
-            with open("the.xml", "r") as f_data:
+        if 'source_file' in self.parameters and self.parameters['source_file'] is not None:
+            with open(self.parameters['source_file'], "r") as f_data:
                 data_source_xml = ' '.join(line.replace('\n', '') for line in f_data)
         else:
-            if self.b_use_proxy:
-                http = urllib3.ProxyManager('http://localhost:3128/')
+            if self.parameters['proxy'] != '':
+                http = urllib3.ProxyManager(self.parameters['proxy'])
             else:
                 http = urllib3.PoolManager(
                     cert_reqs='CERT_REQUIRED',
                     ca_certs=certifi.where()
                 )
 
-            data_source_request = http.request('GET', "https://mikael.hautin.fr/fileadmin/media/the/the.xml")
+            data_source_request = http.request('GET', self.parameters['download_url'])
             if data_source_request.status != 200:
                 print(data_source_request.status)
-                os._exit(1)
+                sys.exit(1)
 
             data_source_xml = data_source_request.data.decode('utf-8')
         return data_source_xml
@@ -149,5 +164,6 @@ class TeaLabel:
         self.write_to_page(i_page_number, labels)
 
 
-o_tea_label_maker = TeaLabel(use_file=False)
-o_tea_label_maker.process()
+if __name__ == '__main__':
+    o_tea_label_maker = TeaLabel()
+    o_tea_label_maker.process()
